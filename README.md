@@ -25,3 +25,6 @@ npm run db:setup
 ```
 
 If something goes wrong, please feel free to file an issue.
+
+[adam]: https://github.com/AdamMc331
+[prince]: https://github.com/maxcell
