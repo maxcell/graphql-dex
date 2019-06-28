@@ -1,0 +1,8 @@
+# A type is used to describe properties of a Pokémon and their moves.
+type PokemonType {
+	# The unique identifier of this type
+	id: ID!
+
+	# The name of the type (normal, grass, etc)
+	name: String!
+}
