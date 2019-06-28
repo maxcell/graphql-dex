@@ -1,0 +1,41 @@
+# A type is used to describe properties of a Pokémon and their moves.
+type PokemonType {
+	# The unique identifier of this type
+	id: ID!
+
+	# The name of the type (normal, grass, etc)
+	name: String!
+}
+
+# What is an ability?
+type Ability {
+	# The unique identifier of this ability
+	id: ID!
+
+	# The name of this ability
+	name: String!
+
+	# A brief explanation of what the ability does
+	description: String!
+}
+
+# A pocket monster
+type Pokemon {
+	# The unique identifier of this Pokémon
+	id: ID!
+
+	# The one or two types that apply to this Pokémon
+	types: [PokemonType]!
+
+	# A list of special abilities that this Pokémon has
+	abilities: [Ability]
+
+	# The name of this Pokémon (Squirtle, Wartortle, etc)
+	name: String!
+
+	# Any types of attacks that this Pokémon is weak against
+	weaknesses: [PokemonType]
+
+	# The number of health points this Pokémon has
+	hp: Int
+}
