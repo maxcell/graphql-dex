@@ -18,7 +18,7 @@ const resolvers = {
   }
 };
 
-const typeDefs = importSchema("./schema.graphql");
+const typeDefs = importSchema("./schemas/schema.graphql");
 
 export const server = new ApolloServer({
   typeDefs,
