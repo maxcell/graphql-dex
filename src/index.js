@@ -1,2 +1,5 @@
-import { start } from "./server";
-start();
+import { server } from "./server";
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 server ready at ${url}`);
+});
