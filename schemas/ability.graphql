@@ -1,0 +1,11 @@
+# What is an ability?
+type Ability {
+	# The unique identifier of this ability
+	id: ID!
+
+	# The name of this ability
+	name: String!
+
+	# A brief explanation of what the ability does
+	description: String!
+}

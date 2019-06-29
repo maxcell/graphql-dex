@@ -1,0 +1,26 @@
+# import PokemonType from "pokemontype.graphql"
+# import Ability from "ability.graphql"
+
+# A pocket monster
+type Pokemon {
+	# The unique identifier of this Pokémon
+	id: ID!
+
+	# The one or two types that apply to this Pokémon
+	types: [PokemonType]!
+
+	# A list of special abilities that this Pokémon has
+	abilities: [Ability]
+
+	# The name of this Pokémon (Squirtle, Wartortle, etc)
+	name: String!
+
+	# The Pokédex entry number for this Pokémon
+	number: Int
+
+	# Any types of attacks that this Pokémon is weak against
+	weaknesses: [PokemonType]
+
+	# The number of health points this Pokémon has
+	hp: Int
+}
