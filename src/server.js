@@ -1,16 +1,9 @@
-import dotenv from "dotenv";
 import knex from "knex";
+import config from "../knexfile";
 import { importSchema } from "graphql-import";
 import { ApolloServer } from "apollo-server";
 
-dotenv.config();
-
-const dbConn = knex({
-  client: "postgresql",
-  connection: {
-    database: process.env.DB_NAME
-  }
-});
+const dbConn = knex(config);
 
 const resolvers = {
   Query: {

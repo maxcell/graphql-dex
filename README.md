@@ -26,5 +26,15 @@ npm run db:setup
 
 If something goes wrong, please feel free to file an issue.
 
+#### Server Start
+
+Last step for getting the server running:
+
+```bash
+npm run build && npm run start
+```
+
+The local server should be running on <http://localhost:4000>!
+
 [adam]: https://github.com/AdamMc331
 [prince]: https://github.com/maxcell
