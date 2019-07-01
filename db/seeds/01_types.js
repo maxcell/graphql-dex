@@ -3,26 +3,9 @@ exports.seed = function(knex) {
   return knex("types")
     .del()
     .then(function() {
-      // Inserts seed entries
-      return knex("types").insert([
-        { name: "Normal" },
-        { name: "Fighting" },
-        { name: "Flying" },
-        { name: "Poison" },
-        { name: "Ground" },
-        { name: "Rock" },
-        { name: "Bug" },
-        { name: "Ghost" },
-        { name: "Steel" },
-        { name: "Fire" },
-        { name: "Water" },
-        { name: "Grass" },
-        { name: "Electric" },
-        { name: "Psychic" },
-        { name: "Ice" },
-        { name: "Dragon" },
-        { name: "Dark" },
-        { name: "Fairy" }
-      ]);
+      const csvFile = __dirname + "/data/types.csv";
+      return knex.raw(
+        `COPY types(id,name,generation_id,damage_class_id) FROM '${csvFile}' DELIMITER ',' CSV HEADER;`
+      );
     });
 };
