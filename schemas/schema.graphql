@@ -8,6 +8,6 @@ type Query {
   # Query for a Pokémon with a specific name
   pokemon(name: String): Pokemon
 
-  # Query for all Pokémon of a given type
-  # pokemon(typeName: String): [Pokemon]
+  # Query for all Pokémon of a given type(s). Only one type is required. If two types are supplied, only pokemon with both of those types are returned.
+  pokemonByTypes(firstTypeName: String!, secondTypeName: String): [Pokemon]
 }
