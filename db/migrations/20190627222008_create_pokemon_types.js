@@ -3,6 +3,7 @@ exports.up = function(knex) {
     table.increments("id");
     table.integer("pokemon_id");
     table.integer("type_id");
+    table.integer("slot");
   });
 };
 

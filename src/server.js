@@ -1,13 +1,19 @@
-import dotenv from "dotenv";
-import { connect } from "./db";
+import knex from "knex";
+import config from "../knexfile";
+import { importSchema } from "graphql-import";
+import { ApolloServer } from "apollo-server";
 
-dotenv.config();
+const dbConn = knex(config);
 
-export const start = async () => {
-  const pool = await connect({
-    user: process.env.DB_USERNAME,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
-    hostname: process.env.DB_HOSTNAME
-  });
+const resolvers = {
+  Query: {
+    types: async () => dbConn("types")
+  }
 };
+
+const typeDefs = importSchema("./schemas/schema.graphql");
+
+export const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
