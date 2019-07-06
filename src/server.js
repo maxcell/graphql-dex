@@ -7,6 +7,7 @@ import PokemonTypesAPI from "./datasources/pokemontypes";
 import PokemonAPI from "./datasources/pokemon";
 
 const dbConn = knex(config);
+
 const typeDefs = importSchema("./schemas/schema.graphql");
 
 export const server = new ApolloServer({
