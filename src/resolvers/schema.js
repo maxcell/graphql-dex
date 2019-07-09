@@ -1,11 +1,11 @@
 import knex from "knex";
-import config from "../knexfile";
+import config from "../../knexfile";
 import Pokemon from "./pokemon.js";
 import { merge } from "lodash";
 
 const dbConn = knex(config);
 
-export const resolvers = merge({
+const resolvers = merge({
     Query: {
         types: async () => dbConn("types"),
         pokemon: async (_, args) => dbConn("pokemons").first().where('name', args.name.toLowerCase()),
@@ -28,3 +28,5 @@ export const resolvers = merge({
         },
     },
 }, Pokemon);
+
+export default resolvers;
