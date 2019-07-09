@@ -3,7 +3,7 @@ import config from "../knexfile";
 
 const dbConn = knex(config);
 
-export const resolvers = {
+export default {
     Pokemon: {
         types(pokemon) {
             return dbConn("types")

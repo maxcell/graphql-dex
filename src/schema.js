@@ -1,8 +1,8 @@
 import knex from "knex";
 import config from "../knexfile";
+import Pokemon from "./pokemon.js";
+import { merge } from "lodash";
 
-const { merge } = require('lodash');
-const Pokemon = require('./pokemon.js');
 const dbConn = knex(config);
 
 export const resolvers = merge({
@@ -27,4 +27,4 @@ export const resolvers = merge({
                 .orderBy("pokemons.id");
         },
     },
-}, Pokemon.resolvers);
+}, Pokemon);
