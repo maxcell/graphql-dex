@@ -9,9 +9,10 @@ The goal of the project was to learn about how GraphQL works as well as create s
 To begin this project you will want to make sure you install all the depedencies:
 
 ```bash
+// If needed
+brew install yarn
+
 yarn install
-# or
-npm install
 ```
 
 Take a gander at the `package.json` if you're curious of the dependencies. Before you are ready to build the project you will also need to create a `.env` file. Use the sample file [.env.sample](./.env.sample) as a guide for the necessary environment variables.
