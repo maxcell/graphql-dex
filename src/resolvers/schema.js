@@ -7,7 +7,7 @@ const dbConn = knex(config);
 
 const resolvers = merge({
     Query: {
-        types: async () => dbConn("types"),
+        types: async (_, __, { dataSources }) => dataSources.pokemonTypesAPI.getTypes(),
         pokemon: async (_, args) => dbConn("pokemons").first().where('name', args.name.toLowerCase()),
         pokemonByTypes: async (_, args) => {
             let typeQuery = dbConn("pokemons")
