@@ -1,11 +1,14 @@
-# What is an ability?
+# A passive effect in battle or in the overworld
 type Ability {
-	# The unique identifier of this ability
-	id: ID!
+  # The unique identifier of this ability
+  id: ID!
 
-	# The name of this ability
-	name: String!
+  # The name of this ability
+  name: String!
 
-	# A brief explanation of what the ability does
-	description: String!
+  # A brief explanation of what the ability does
+  short_effect: String!
+
+  # Long description of what the ability does both in battle or in overworld
+  effect: String!
 }
