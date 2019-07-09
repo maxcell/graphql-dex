@@ -16,6 +16,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "apollo-datasource": "^0.5.0",
     "apollo-server": "^2.6.7",
     "dotenv": "^8.0.0",
     "graphql": "^14.4.1",
