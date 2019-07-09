@@ -1,4 +1,4 @@
-# What is an ability?
+# A passive effect in battle or in the overworld
 type Ability {
   # The unique identifier of this ability
   id: ID!

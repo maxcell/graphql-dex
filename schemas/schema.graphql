@@ -1,4 +1,5 @@
 # import PokemonType from "pokemontype.graphql"
+# import Ability from "ability.graphql"
 # import Pokemon from "pokemon.graphql"
 
 type Query {

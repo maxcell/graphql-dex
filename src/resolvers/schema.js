@@ -1,17 +1,25 @@
-import knex from "knex";
-import config from "../../knexfile";
-import Pokemon from "./pokemon.js";
+import Pokemon from "./pokemon";
 import { merge } from "lodash";
 
-const dbConn = knex(config);
-
-const resolvers = merge({
+const resolvers = merge(
+  {
     Query: {
-        types: async (_, __, { dataSources }) => dataSources.pokemonTypesAPI.getTypes(),
-        pokemon: async (_, args) => dbConn("pokemons").first().where('name', args.name.toLowerCase()),
-        pokemonByTypes: async (_, args, { dataSources }) =>
-            dataSources.pokemonAPI.getPokemonByTypes(args.firstTypeName, args.secondTypeName),
-    },
-}, Pokemon);
+      types: async (_, __, { dataSources }) =>
+        dataSources.pokemonTypesAPI.getTypes(),
+      abilities: async (_, __, { dataSources }) =>
+        dataSources.abilitiesAPI.getAbilities(),
+      pokemon: async (_, args, { dataSources }) =>
+        dataSources.pokemonAPI.getPokemonByName(args.name),
+      pokemonByTypes: async (_, args, { dataSources }) =>
+        dataSources.pokemonAPI.getPokemonByTypes(
+          args.firstTypeName,
+          args.secondTypeName
+        ),
+      pokemonByAbility: async (_, args, { dataSources }) =>
+        dataSources.pokemonAPI.getPokemonByAbility(args.abilityName)
+    }
+  },
+  Pokemon
+);
 
 export default resolvers;
