@@ -23,6 +23,15 @@ class PokemonAPI extends DataSource {
         return typeQuery
             .orderBy("pokemons.id");
     }
+
+    async getTypesForPokemon(pokemonId) {
+        return this.knex("types")
+            .select("types.*")
+            .join("pokemon_types", "types.id", "=", "pokemon_types.type_id")
+            .join("pokemons", "pokemon_types.pokemon_id", "=", "pokemons.id")
+            .where("pokemons.id", pokemonId)
+            .orderBy("pokemon_types.slot")
+    }
 }
 
 export default PokemonAPI;
