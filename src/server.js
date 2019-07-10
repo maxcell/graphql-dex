@@ -18,5 +18,7 @@ export const server = new ApolloServer({
     pokemonTypesAPI: new PokemonTypesAPI(dbConn),
     pokemonAPI: new PokemonAPI(dbConn),
     abilitiesAPI: new AbilitiesAPI(dbConn)
-  })
+  }),
+  introspection: true,
+  playground: true
 });
