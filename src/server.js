@@ -12,6 +12,7 @@ const dbConn = knex(config);
 const typeDefs = importSchema("./schemas/schema.graphql");
 
 export const server = new ApolloServer({
+  cors: true,
   typeDefs,
   resolvers: PokedexSchema,
   dataSources: () => ({
