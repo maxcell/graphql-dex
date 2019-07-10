@@ -6,14 +6,14 @@ type Query {
   # Query for all of the types applicable to any Pokémon
   types: [PokemonType]
 
-  # Query for all Pokémon
-  pokemons: [Pokemon]
-
   # Query for all of the abilities applicable to any Pokémon
   abilities: [Ability]
 
   # Query for a Pokémon with a specific name
   pokemon(name: String): Pokemon
+
+  # Query for all pokemon. You can supply a limit to fetch a specific amount. By default 50 pokemon are returned.
+  pokemons(limit: Int): [Pokemon]
 
   # Query for all Pokémon of a given type(s). Only one type is required. If two types are supplied, only pokemon with both of those types are returned.
   pokemonByTypes(firstTypeName: String!, secondTypeName: String): [Pokemon]

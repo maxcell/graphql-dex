@@ -66,6 +66,14 @@ class PokemonAPI extends DataSource {
       .where("pokemons.id", pokemonId)
       .orderBy("pokemon_abilities.slot");
   }
+
+  async getPokemons(limit) {
+    let limitToUse = limit || 50
+
+    return this.knex("pokemons")
+      .select("*")
+      .limit(limitToUse)
+  }
 }
 
 export default PokemonAPI;
