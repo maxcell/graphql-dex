@@ -72,6 +72,7 @@ class PokemonAPI extends DataSource {
 
     let pokemonQuery = this.knex("pokemons")
       .select("*")
+      .where("is_default", "1")
 
     if (after !== undefined) {
       pokemonQuery = pokemonQuery
@@ -89,6 +90,7 @@ class PokemonAPI extends DataSource {
    */
   async buildPokemonConnection(pokemon) {
     return this.knex("pokemons")
+      .where("is_default", "1")
       .max("id")
       .first()
       .then(function (maxRow) {
