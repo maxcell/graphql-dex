@@ -1,7 +1,7 @@
 import knex from "knex";
 import config from "../knexfile";
 import { importSchema } from "graphql-import";
-import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "apollo-server-express";
 import PokedexSchema from "./resolvers/schema";
 import PokemonTypesAPI from "./datasources/pokemontypes";
 import AbilitiesAPI from "./datasources/abilities";

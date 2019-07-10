@@ -1,9 +1,9 @@
+import express from "express";
 import { server } from "./server";
 
-server
-  .listen({
-    port: process.env.SERVER_PORT
-  })
-  .then(({ url }) => {
-    console.log(`🚀 server ready at ${url}`);
-  });
+const app = express();
+server.applyMiddleware({ app });
+
+app.listen({ port: process.env.SERVER_PORT }, () => {
+  console.log(`🚀 server ready at http://localhost:4000/${server.graphqlPath}`);
+});
