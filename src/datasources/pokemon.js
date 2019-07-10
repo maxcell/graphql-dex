@@ -80,9 +80,20 @@ class PokemonAPI extends DataSource {
 
     return pokemonQuery
       .limit(limitToUse)
-      .then(function (pokemon) {
-        let after = (pokemon.length > 0 ? pokemon[pokemon.length - 1].id : "").toString()
-        let hasMore = after !== ""
+      .then((pokemon) => this.buildPokemonConnection(pokemon))
+  }
+
+  /**
+   * Builds a pokemon connection object given a list of pokemon, by fetching for the max possible
+   * ID and determining if we have more data.
+   */
+  async buildPokemonConnection(pokemon) {
+    return this.knex("pokemons")
+      .max("id")
+      .first()
+      .then(function (maxRow) {
+        let after = (pokemon.length > 0 ? pokemon[pokemon.length - 1].id : "")
+        let hasMore = after !== maxRow.max
 
         let pageInfo = {
           after: after,
