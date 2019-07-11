@@ -7,11 +7,7 @@ class PokemonTypesAPI extends DataSource {
   }
 
   async getTypes() {
-    try {
-      return this.knex("types");
-    } catch (e) {
-      console.error(e);
-    }
+    return this.knex("types");
   }
 }
 
