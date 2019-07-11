@@ -1,14 +1,3 @@
 {
-  "builds": [{ "src": "dist/index.js", "use": "@now/node" }],
-  "routes": [{ "src": "/.*", "dest": "index.js" }],
-  "env": {
-    "NODE_ENV": "production",
-    "SERVER_PORT": 4000,
-    "DB_PORT": 5500,
-    "DB_USERNAME": "adamprincemcneillywilson",
-    "DB_USERPASS": "tunnel-continuo-swear-famed-barbecue-ascribe-aromatic-alec-caddy-wildlife",
-    "DB_NAME": "graphqldex_production",
-    "DB_HOSTNAME": "graphqldex.c3ho9vgbyugw.us-east-2.rds.amazonaws.com",
-    "ENGINE_API_KEY": "service:maxcell-6984:k9AJxMS4cktiosxxs1lo_g"
-  }
+  "env": {}
 }
