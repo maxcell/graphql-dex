@@ -66,6 +66,48 @@ class PokemonAPI extends DataSource {
       .where("pokemons.id", pokemonId)
       .orderBy("pokemon_abilities.slot");
   }
+
+  async getPokemons(limit, after) {
+    let limitToUse = limit || 50
+
+    let pokemonQuery = this.knex("pokemons")
+      .select("*")
+      .where("is_default", "1")
+
+    if (after !== undefined) {
+      pokemonQuery = pokemonQuery
+        .where("id", ">", after)
+    }
+
+    return pokemonQuery
+      .limit(limitToUse)
+      .then((pokemon) => this.buildPokemonConnection(pokemon))
+  }
+
+  /**
+   * Builds a pokemon connection object given a list of pokemon, by fetching for the max possible
+   * ID and determining if we have more data.
+   */
+  async buildPokemonConnection(pokemon) {
+    return this.knex("pokemons")
+      .where("is_default", "1")
+      .max("id")
+      .first()
+      .then(function (maxRow) {
+        let after = (pokemon.length > 0 ? pokemon[pokemon.length - 1].id : "")
+        let hasMore = after !== maxRow.max
+
+        let pageInfo = {
+          after: after,
+          hasMore: hasMore
+        }
+
+        return {
+          data: pokemon,
+          pageInfo: pageInfo
+        }
+      })
+  }
 }
 
 export default PokemonAPI;

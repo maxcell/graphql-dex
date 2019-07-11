@@ -1,0 +1,8 @@
+# Information about a pagination request that lets the client determine what to do next.
+type PageInfo {
+    # The next key to pass into the query that requests additional information.
+    after: String
+
+    # A flag showing whether there are more results after those returned by this query.
+    hasMore: Boolean
+}

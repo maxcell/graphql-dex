@@ -1,5 +1,6 @@
 # import PokemonType from "pokemontype.graphql"
 # import Ability from "ability.graphql"
+# import PageInfo from "pageinfo.graphql"
 
 # A pocket monster
 type Pokemon {
@@ -23,4 +24,13 @@ type Pokemon {
 
 	# The number of health points this Pokémon has
 	hp: Int
+}
+
+# An entity used to paginate through Pokemon.
+type PokemonConnection {
+	# A list of Pokemon that are a part of this response.
+	data: [Pokemon]
+
+	# The paging information that will help for subsequent requests. 
+	pageInfo: PageInfo
 }

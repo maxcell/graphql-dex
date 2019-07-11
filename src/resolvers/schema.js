@@ -16,7 +16,9 @@ const resolvers = merge(
           args.secondTypeName
         ),
       pokemonByAbility: async (_, args, { dataSources }) =>
-        dataSources.pokemonAPI.getPokemonByAbility(args.abilityName)
+        dataSources.pokemonAPI.getPokemonByAbility(args.abilityName),
+      pokemons: async (_, args, { dataSources }) =>
+        dataSources.pokemonAPI.getPokemons(args.limit, args.after)
     }
   },
   Pokemon
