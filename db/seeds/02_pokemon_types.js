@@ -1,11 +1,2 @@
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex("pokemon_types")
-    .del()
-    .then(function() {
-      const csvFile = __dirname + "/data/pokemon_types.csv";
-      return knex.raw(
-        `COPY pokemon_types(pokemon_id,type_id,slot) FROM '${csvFile}' DELIMITER ',' CSV HEADER;`
-      );
-    });
-};
+const seedFromCSV = require("../utils.js");
+exports.seed = seedFromCSV("pokemon_types.csv", "pokemon_types");
