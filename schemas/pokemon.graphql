@@ -24,6 +24,9 @@ type Pokemon {
 
 	# The number of health points this Pokémon has
 	hp: Int
+
+	# The main sprite for this Pokémon
+	sprite: String!
 }
 
 # An entity used to paginate through Pokemon.
