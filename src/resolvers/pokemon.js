@@ -1,4 +1,4 @@
-const spriteBase = "https://raw.githubusercontent.com/maxcell/graphql-dex/master/db/seeds/sprites/";
+const spriteBase = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
 const spriteExtension = ".png"
 
 export default {
@@ -7,6 +7,6 @@ export default {
       dataSources.pokemonAPI.getTypesForPokemon(pokemon.id),
     abilities: (pokemon, _, { dataSources }) =>
       dataSources.pokemonAPI.getAbilitiesForPokemon(pokemon.id),
-    sprite: (pokemon, _, __, ) => spriteBase.concat(pokemon.id).concat(spriteExtension)
+    sprite: (pokemon, _, __) => spriteBase.concat(pokemon.id).concat(spriteExtension)
   }
 };
